@@ -1,0 +1,436 @@
+ТОГОЧАКОВА ЕВГЕНИЯ ВЯЧЕСЛАВОВНА 
+14.12.2023
+4544
+
+Операционные системы и виртуализация (Linux)
+
+1. Использование команды cat в Linux
+   - Создать два текстовых файла: "Pets"(Домашние животные) и "Pack animals"(вьючные животные), используя команду `cat` в терминале Linux. 
+jennifer@jennifer-VirtualBox:~$ whoami
+jennifer
+jennifer@jennifer-VirtualBox:~$ ls
+ lws   lws2   lws3   shared   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+В первом файле перечислить собак, кошек и хомяков. Во втором — лошадей, верблюдов и ослов.
+   - Объединить содержимое этих двух файлов в один и просмотреть его содержимое.
+   - Переименовать получившийся файл в "Human Friends"(.
+Пример конечного вывода после команды “ls” :
+Desktop Documents Downloads  HumanFriends.txt  Music  PackAnimals.txt  Pets.txt  Pictures  Videos
+
+
+2. Работа с директориями в Linux
+   - Создать новую директорию и переместить туда файл "Human Friends".
+
+3. Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину ”
+   - Подключить дополнительный репозиторий MySQL и установить один из пакетов из этого репозитория.
+
+4. Управление deb-пакетами
+   - Установить и затем удалить deb-пакет, используя команду `dpkg`.
+
+=======================================История команд в терминале Ubuntu. Использование команды cat в Linux=============================
+jennifer@jennifer-VirtualBox:~$ whoami
+jennifer
+jennifer@jennifer-VirtualBox:~$ ls
+ lws   lws2   lws3   shared   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+jennifer@jennifer-VirtualBox:~$ cat > pets.txt
+Собака Buddy
+Собака Zuzu
+Кошка Lilit
+Кошка Zemphira
+Хомяк Cook
+Хомяк Lesli
+jennifer@jennifer-VirtualBox:~$ more pets.txt
+Собака Buddy
+Собака Zuzu
+Кошка Lilit
+Кошка Zemphira
+Хомяк Cook
+Хомяк Lesli
+jennifer@jennifer-VirtualBox:~$ ls
+ lws   lws2   lws3   pets.txt   shared   snap   Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+jennifer@jennifer-VirtualBox:~$ cat > pack_animals.txt
+лошадь Astra
+лошадь George
+верблюд Toto
+верблюд Zeezee
+осел Monkey
+осел Donkey
+jennifer@jennifer-VirtualBox:~$ more pack_animals.txt
+лошадь Astra
+лошадь George
+верблюд Toto
+верблюд Zeezee
+осел Monkey
+осел Donkey
+jennifer@jennifer-VirtualBox:~$ ls
+ lws    lws3               pets.txt   snap    Документы   Изображения   Общедоступные   Шаблоны
+ lws2   pack_animals.txt   shared     Видео   Загрузки    Музыка       'Рабочий стол'
+jennifer@jennifer-VirtualBox:~$ cat pets.txt pack_animals.txt > all_animals.txt
+jennifer@jennifer-VirtualBox:~$ ls
+ all_animals.txt   lws2   pack_animals.txt   shared   Видео       Загрузки      Музыка         'Рабочий стол'
+ lws               lws3   pets.txt           snap     Документы   Изображения   Общедоступные   Шаблоны
+jennifer@jennifer-VirtualBox:~$ cat all_animals.txt
+Собака Buddy
+Собака Zuzu
+Кошка Lilit
+Кошка Zemphira
+Хомяк Cook
+Хомяк Lesli
+лошадь Astra
+лошадь George
+верблюд Toto
+верблюд Zeezee
+осел Monkey
+осел Donkey
+jennifer@jennifer-VirtualBox:~$ mv all_animals.txt human_friends.txt
+jennifer@jennifer-VirtualBox:~$ ls
+ human_friends.txt   lws2   pack_animals.txt   shared   Видео       Загрузки      Музыка         'Рабочий стол'
+ lws                 lws3   pets.txt           snap     Документы   Изображения   Общедоступные   Шаблоны
+
+=======================================История команд в терминале Ubuntu. Работа с директориями в Linux=============================
+jennifer@jennifer-VirtualBox:~$ mkdir lws4
+jennifer@jennifer-VirtualBox:~$ mv human_friends.txt lws4
+jennifer@jennifer-VirtualBox:~$ ls
+ lws    lws3   pack_animals.txt   shared   Видео       Загрузки      Музыка         'Рабочий стол'
+ lws2   lws4   pets.txt           snap     Документы   Изображения   Общедоступные   Шаблоны
+jennifer@jennifer-VirtualBox:~$ cd lws4
+jennifer@jennifer-VirtualBox:~/lws4$ ls
+human_friends.txt
+jennifer@jennifer-VirtualBox:~/lws4$ cd ..
+=======================================История команд в терминале Ubuntu. Работа с MySQL в Linux=============================
+jennifer@jennifer-VirtualBox:~$ sudo apt install mysql-server -y
+jennifer@jennifer-VirtualBox:~$ systemctl status mysql
+jennifer@jennifer-VirtualBox:~$ sudo ss -ntlp
+jennifer@jennifer-VirtualBox:~$ sudo mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.35-0ubuntu0.22.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0,02 sec)
+
+mysql> exit
+Bye
+jennifer@jennifer-VirtualBox:~$
+=======================================История команд в терминале Ubuntu. Управление deb-пакетами=============================
+jennifer@jennifer-VirtualBox:~$ sudo su
+root@jennifer-VirtualBox:/home/jennifer# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+root@jennifer-VirtualBox:/home/jennifer# dpkg -l
+root@jennifer-VirtualBox:/home/jennifer# ls
+ google-chrome-stable_current_amd64.deb   lws2   lws4               pets.txt   snap    Документы   Изображения   Общедоступные   Шаблоны
+ lws                                      lws3   pack_animals.txt   shared     Видео   Загрузки    Музыка       'Рабочий стол'
+root@jennifer-VirtualBox:/home/jennifer# sudo dpkg -i google-chrome-stable_current_amd64.deb
+root@jennifer-VirtualBox:/home/jennifer# dpkg -l google-chrome-stable
+Желаемый=неизвестно[u]/установить[i]/удалить[r]/вычистить[p]/зафиксировать[h]
+| Состояние=не[n]/установлен[i]/настроен[c]/распакован[U]/частично настроен[F]/
+            частично установлен[H]/trig-aWait/Trig-pend
+|/ Ошибка?=(нет)/требуется переустановка[R] (верхний регистр
+в полях состояния и ошибки указывает на ненормальную ситуацию)
+||/ Имя                  Версия           Архитектура  Описание
++++-====================-================-============-=================================
+ii  google-chrome-stable 120.0.6099.109-1 amd64        The web browser from Google
+root@jennifer-VirtualBox:/home/jennifer#
+root@jennifer-VirtualBox:/home/jennifer# dpkg --purge google-chrome-stable
+root@jennifer-VirtualBox:/home/jennifer# dpkg -l google-chrome-stable
+dpkg-query: шаблону google-chrome-stable не соответствует ни один пакет
+root@jennifer-VirtualBox:/home/jennifer# ls
+ google-chrome-stable_current_amd64.deb   lws2   lws4               pets.txt   snap    Документы   Изображения   Общедоступные   Шаблоны
+ lws                                      lws3   pack_animals.txt   shared     Видео   Загрузки    Музыка       'Рабочий стол'
+root@jennifer-VirtualBox:/home/jennifer# rm google-chrome-stable_current_amd64.deb
+root@jennifer-VirtualBox:/home/jennifer# ls
+ lws    lws3   pack_animals.txt   shared   Видео       Загрузки      Музыка         'Рабочий стол'
+ lws2   lws4   pets.txt           snap     Документы   Изображения   Общедоступные   Шаблоны
+root@jennifer-VirtualBox:/home/jennifer#
+
+
+
+Объектно-ориентированное программирование
+7. Работа с MySQL (Задача выполняется в случае успешного выполнения задачи “Работа с MySQL в Linux. “Установить MySQL на вашу машину”
+
+7.1. После создания диаграммы классов в 6 пункте, в 7 пункте база данных "Human Friends" должна быть структурирована в соответствии с этой диаграммой. Например, можно создать таблицы, которые будут соответствовать классам "Pets" и "Pack animals", и в этих таблицах будут поля, которые характеризуют каждый тип животных (например, имена, даты рождения, выполняемые команды и т.д.). 
+7.2   - В ранее подключенном MySQL создать базу данных с названием "Human Friends".
+   - Создать таблицы, соответствующие иерархии из вашей диаграммы классов.
+   - Заполнить таблицы данными о животных, их командах и датами рождения.
+   - Удалить записи о верблюдах и объединить таблицы лошадей и ослов.
+   - Создать новую таблицу для животных в возрасте от 1 до 3 лет и вычислить их возраст с точностью до месяца.
+   - Объединить все созданные таблицы в одну, сохраняя информацию о принадлежности к исходным таблицам.
+
+=======================================История команд в терминале Ubuntu.================================================================
+jennifer@jennifer-VirtualBox:~$ sudo mysql -u root -p
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0,31 sec)
+
+
+mysql> DROP DATABASE IF EXISTS human_friends;
+Query OK, 0 rows affected, 1 warning (0,05 sec)
+
+mysql> CREATE DATABASE IF NOT EXISTS human_friends;
+Query OK, 1 row affected (0,08 sec)
+
+mysql> USE human_friends;
+Database changed
+mysql> DROP TABLE IF EXISTS categories_of_animals;
+Query OK, 0 rows affected, 1 warning (0,14 sec)
+
+mysql> CREATE TABLE categories_of_animals(
+    ->   id_category SERIAL PRIMARY KEY,
+    ->   category VARCHAR(30) COMMENT 'Категория животного'
+    -> ) COMMENT = 'Таблица категорий животных';
+Query OK, 0 rows affected (0,86 sec)
+
+mysql> INSERT INTO categories_of_animals(category)
+    -> VALUES ('pet'), ('pack_animal');
+Query OK, 2 rows affected (0,15 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM categories_of_animals;
++-------------+-------------+
+| id_category | category    |
++-------------+-------------+
+|           1 | pet         |
+|           2 | pack_animal |
++-------------+-------------+
+2 rows in set (0,01 sec)
+
+
+mysql> DROP TABLE IF EXISTS types_of_animals;
+Query OK, 0 rows affected, 1 warning (0,01 sec)
+
+mysql> CREATE TABLE types_of_animals(
+    ->   id_type SERIAL PRIMARY KEY,
+    ->   `type` VARCHAR(30) COMMENT 'Вид животного',
+    ->   category_id BIGINT UNSIGNED,
+    ->   FOREIGN KEY(category_id) REFERENCES categories_of_animals(id_category)
+    ->   ON DELETE CASCADE ON UPDATE CASCADE
+    -> ) COMMENT = 'Таблица видов животных';
+Query OK, 0 rows affected (0,20 sec)
+
+mysql> INSERT INTO types_of_animals(`type`, category_id)
+    -> VALUES ('dog', 1), ('cat', 1), ('hamster', 1), ('horse', 2), ('camel', 2), ('donkey', 2);
+Query OK, 6 rows affected (0,06 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM types_of_animals;
++---------+---------+-------------+
+| id_type | type    | category_id |
++---------+---------+-------------+
+|       1 | dog     |           1 |
+|       2 | cat     |           1 |
+|       3 | hamster |           1 |
+|       4 | horse   |           2 |
+|       5 | camel   |           2 |
+|       6 | donkey  |           2 |
++---------+---------+-------------+
+6 rows in set (0,00 sec)
+
+mysql> DROP TABLE IF EXISTS pets;
+Query OK, 0 rows affected, 1 warning (0,01 sec)
+
+mysql> CREATE TABLE pets (
+    ->   id_pet SERIAL PRIMARY KEY,
+    ->   `name` VARCHAR(30) NOT NULL,
+    ->   `type` BIGINT UNSIGNED NOT NULL,
+    ->   birthDate DATE NOT NULL,
+    ->   command_1 VARCHAR(30),
+    ->   command_2 VARCHAR(30),
+    ->   command_3 VARCHAR(30),
+    ->   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ->   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->   FOREIGN KEY(`type`) REFERENCES types_of_animals(id_type)
+    ->   ON DELETE CASCADE ON UPDATE CASCADE
+    -> ) COMMENT = 'Домашние животные в питомнике';
+Query OK, 0 rows affected (0,14 sec)
+
+mysql> INSERT INTO pets(`name`, `type`, birthDate, command_1, command_2, command_3)
+    -> VALUES
+    ->   ('Fido', 1, '2020-01-01', 'Sit', 'Stay', 'Fetch'),
+    ->   ('Whiskers', 2, '2019-05-15', 'Sit', 'Pounce', NULL),
+    ->   ('Hammy', 3, '2021-03-10', 'Roll', 'Hide', NULL),
+    ->   ('Buddy', 1, '2018-12-10', 'Sit', 'Paw', 'Bark'),
+    ->   ('Smudge', 2, '2020-02-20', 'Sit', 'Pounce', 'Scratch'),
+    ->   ('Peanut', 3, '2021-08-01', 'Roll', 'Spin', NULL),
+    ->   ('Bella', 1, '2019-11-11', 'Sit', 'Stay', 'Roll'),
+    ->   ('Oliver', 2, '2020-06-30', 'Meow', 'Scratch', 'Jump');
+Query OK, 8 rows affected (0,11 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pets;
++--------+----------+------+------------+-----------+-----------+-----------+---------------------+---------------------+
+| id_pet | name     | type | birthDate  | command_1 | command_2 | command_3 | created_at          | updated_at          |
++--------+----------+------+------------+-----------+-----------+-----------+---------------------+---------------------+
+|      1 | Fido     |    1 | 2020-01-01 | Sit       | Stay      | Fetch     | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      2 | Whiskers |    2 | 2019-05-15 | Sit       | Pounce    | NULL      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      3 | Hammy    |    3 | 2021-03-10 | Roll      | Hide      | NULL      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      4 | Buddy    |    1 | 2018-12-10 | Sit       | Paw       | Bark      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      5 | Smudge   |    2 | 2020-02-20 | Sit       | Pounce    | Scratch   | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      6 | Peanut   |    3 | 2021-08-01 | Roll      | Spin      | NULL      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      7 | Bella    |    1 | 2019-11-11 | Sit       | Stay      | Roll      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
+|      8 | Oliver   |    2 | 2020-06-30 | Meow      | Scratch   | Jump      | 2023-12-14 14:00:56 | 2023-12-14 14:00:56 |
++--------+----------+------+------------+-----------+-----------+-----------+---------------------+---------------------+
+8 rows in set (0,00 sec)
+
+mysql> DROP TABLE IF EXISTS pack_animals;
+Query OK, 0 rows affected, 1 warning (0,02 sec)
+
+mysql> CREATE TABLE pack_animals (
+    ->   id_pack_animal SERIAL PRIMARY KEY,
+    ->   `name` VARCHAR(30) NOT NULL,
+    ->   `type` BIGINT UNSIGNED NOT NULL,
+    ->   birthDate DATE NOT NULL,
+    ->   command_1 VARCHAR(30),
+    ->   command_2 VARCHAR(30),
+    ->   command_3 VARCHAR(30),
+    ->   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ->   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    ->   FOREIGN KEY(`type`) REFERENCES types_of_animals(id_type)
+    ->   ON DELETE CASCADE ON UPDATE CASCADE
+    -> ) COMMENT = 'Вьючные животные в питомнике';
+Query OK, 0 rows affected (0,21 sec)
+
+mysql> INSERT INTO pack_animals(`name`, `type`, birthDate, command_1, command_2, command_3)
+    -> VALUES
+    ->   ('Thunder', 4, '2015-07-21', 'Trot', 'Canter', 'Gallop'),
+    ->   ('Sandy', 5, '2016-11-03', 'Walk', 'Carry Load', NULL),
+    ->   ('Eeyore', 6, '2017-09-18', 'Walk', 'Carry Load', 'Bray'),
+    ->   ('Storm', 4, '2014-05-05', 'Trot', 'Canter', NULL),
+    ->   ('Dune', 5, '2018-12-12', 'Walk', 'Sit', NULL),
+    ->   ('Burro', 6, '2019-01-23', 'Walk', 'Bray', 'Kick'),
+    ->   ('Blaze', 4, '2016-02-29', 'Trot', 'Jump', 'Gallop'),
+    ->   ('Sahara', 5, '2015-08-14', 'Walk', 'Run', NULL);
+Query OK, 8 rows affected (0,06 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM pack_animals;
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+| id_pack_animal | name    | type | birthDate  | command_1 | command_2  | command_3 | created_at          | updated_at          |
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+|              1 | Thunder |    4 | 2015-07-21 | Trot      | Canter     | Gallop    | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              2 | Sandy   |    5 | 2016-11-03 | Walk      | Carry Load | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              3 | Eeyore  |    6 | 2017-09-18 | Walk      | Carry Load | Bray      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              4 | Storm   |    4 | 2014-05-05 | Trot      | Canter     | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              5 | Dune    |    5 | 2018-12-12 | Walk      | Sit        | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              6 | Burro   |    6 | 2019-01-23 | Walk      | Bray       | Kick      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              7 | Blaze   |    4 | 2016-02-29 | Trot      | Jump       | Gallop    | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              8 | Sahara  |    5 | 2015-08-14 | Walk      | Run        | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+8 rows in set (0,00 sec)
+
+mysql> SELECT * FROM pack_animals
+    -> WHERE type=5;
++----------------+--------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+| id_pack_animal | name   | type | birthDate  | command_1 | command_2  | command_3 | created_at          | updated_at          |
++----------------+--------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+|              2 | Sandy  |    5 | 2016-11-03 | Walk      | Carry Load | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              5 | Dune   |    5 | 2018-12-12 | Walk      | Sit        | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              8 | Sahara |    5 | 2015-08-14 | Walk      | Run        | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
++----------------+--------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+3 rows in set (0,00 sec)
+
+mysql> DELETE FROM pack_animals
+    -> WHERE type=5;
+Query OK, 3 rows affected (0,02 sec)
+
+mysql> SELECT * FROM pack_animals;
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+| id_pack_animal | name    | type | birthDate  | command_1 | command_2  | command_3 | created_at          | updated_at          |
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+|              1 | Thunder |    4 | 2015-07-21 | Trot      | Canter     | Gallop    | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              3 | Eeyore  |    6 | 2017-09-18 | Walk      | Carry Load | Bray      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              4 | Storm   |    4 | 2014-05-05 | Trot      | Canter     | NULL      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              6 | Burro   |    6 | 2019-01-23 | Walk      | Bray       | Kick      | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
+|              7 | Blaze   |    4 | 2016-02-29 | Trot      | Jump       | Gallop    | 2023-12-14 14:03:51 | 2023-12-14 14:03:51 |
++----------------+---------+------+------------+-----------+------------+-----------+---------------------+---------------------+
+5 rows in set (0,01 sec)
+
+mysql> SELECT `name`, types_of_animals.`type` AS ВИД,
+    -> categories_of_animals.category AS КАТЕГОРИЯ,
+    -> birthDate AS Дата_рождения,
+    -> ROUND(DATEDIFF(CURRENT_DATE(), birthDate)/365,2) AS ВОЗРАСТ,
+    -> command_1, command_2, command_3
+    -> FROM pets
+    -> JOIN types_of_animals ON pets.`type` = types_of_animals.id_type
+    -> JOIN categories_of_animals ON types_of_animals.category_id = id_category
+    -> WHERE DATEDIFF(CURRENT_DATE(), birthDate) < 1095 AND
+    -> DATEDIFF(CURRENT_DATE(), birthDate) > 365
+    -> UNION ALL
+    -> SELECT `name`, types_of_animals.`type` AS ВИД,
+    -> categories_of_animals.category AS КАТЕГОРИЯ,
+    -> birthDate AS Дата_рождения,
+    -> ROUND(DATEDIFF(CURRENT_DATE(), birthDate)/365,2) AS ВОЗРАСТ,
+    -> command_1, command_2, command_3
+    -> FROM pack_animals
+    -> JOIN types_of_animals ON pack_animals.`type` = types_of_animals.id_type
+    -> JOIN categories_of_animals ON types_of_animals.category_id = id_category
+    -> WHERE DATEDIFF(CURRENT_DATE(), birthDate) < 1095 AND
+    -> DATEDIFF(CURRENT_DATE(), birthDate) > 365;
++--------+---------+--------------------+---------------------------+----------------+-----------+-----------+-----------+
+| name   | ВИД     | КАТЕГОРИЯ          | Дата_рождения             | ВОЗРАСТ        | command_1 | command_2 | command_3 |
++--------+---------+--------------------+---------------------------+----------------+-----------+-----------+-----------+
+| Hammy  | hamster | pet                | 2021-03-10                |           2.76 | Roll      | Hide      | NULL      |
+| Peanut | hamster | pet                | 2021-08-01                |           2.37 | Roll      | Spin      | NULL      |
++--------+---------+--------------------+---------------------------+----------------+-----------+-----------+-----------+
+2 rows in set (0,03 sec)
+
+mysql> SELECT `name`, types_of_animals.`type` AS ВИД,
+    -> categories_of_animals.category AS КАТЕГОРИЯ,
+    -> birthDate AS Дата_рождения,
+    -> command_1, command_2, command_3
+    -> FROM pets
+    -> JOIN types_of_animals ON pets.`type` = types_of_animals.id_type
+    -> JOIN categories_of_animals ON types_of_animals.category_id = id_category
+    -> UNION ALL
+    -> SELECT `name`, types_of_animals.`type` AS ВИД,
+    -> categories_of_animals.category AS КАТЕГОРИЯ,
+    -> birthDate AS Дата_рождения,
+    -> command_1, command_2, command_3
+    -> FROM pack_animals
+    -> JOIN types_of_animals ON pack_animals.`type` = types_of_animals.id_type
+    -> JOIN categories_of_animals ON types_of_animals.category_id = id_category;
++----------+---------+--------------------+---------------------------+-----------+------------+-----------+
+| name     | ВИД     | КАТЕГОРИЯ          | Дата_рождения             | command_1 | command_2  | command_3 |
++----------+---------+--------------------+---------------------------+-----------+------------+-----------+
+| Fido     | dog     | pet                | 2020-01-01                | Sit       | Stay       | Fetch     |
+| Buddy    | dog     | pet                | 2018-12-10                | Sit       | Paw        | Bark      |
+| Bella    | dog     | pet                | 2019-11-11                | Sit       | Stay       | Roll      |
+| Whiskers | cat     | pet                | 2019-05-15                | Sit       | Pounce     | NULL      |
+| Smudge   | cat     | pet                | 2020-02-20                | Sit       | Pounce     | Scratch   |
+| Oliver   | cat     | pet                | 2020-06-30                | Meow      | Scratch    | Jump      |
+| Hammy    | hamster | pet                | 2021-03-10                | Roll      | Hide       | NULL      |
+| Peanut   | hamster | pet                | 2021-08-01                | Roll      | Spin       | NULL      |
+| Blaze    | horse   | pack_animal        | 2016-02-29                | Trot      | Jump       | Gallop    |
+| Burro    | donkey  | pack_animal        | 2019-01-23                | Walk      | Bray       | Kick      |
+| Storm    | horse   | pack_animal        | 2014-05-05                | Trot      | Canter     | NULL      |
+| Eeyore   | donkey  | pack_animal        | 2017-09-18                | Walk      | Carry Load | Bray      |
+| Thunder  | horse   | pack_animal        | 2015-07-21                | Trot      | Canter     | Gallop    |
++----------+---------+--------------------+---------------------------+-----------+------------+-----------+
+13 rows in set (0,00 sec)
+
+
+
+ 
+
